@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\PedidoCanceladoMail;
+use App\Mail\PedidoEnviadoMail;
+use App\Mail\PedidoPersonalizadoMail;
 use App\Models\Correo;
 use App\Models\Pedido;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class PedidoController extends Controller
 {

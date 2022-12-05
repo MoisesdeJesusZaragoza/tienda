@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use App\Models\Estado;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +15,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // Usuarios
+        User::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => bcrypt('admin')]);
+
+        // Estados
+        $estados = [
+            ['nombre' => 'Pendiente'],
+            ['nombre' => 'Enviado'],
+            ['nombre' => 'Entregado'],
+            ['nombre' => 'Cancelado'],
+        ];
+        foreach ($estados as $estado) {
+            Estado::create($estado);
+        }
+
     }
 }
